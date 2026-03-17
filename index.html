@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Seleira ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: background 0.5s ease;
+  }
+
+  .pink-bg {
+    background: linear-gradient(to bottom, #ff9eb5, #ffd6e0);
+    color: #5a0033;
+  }
+
+  .container {
+  max-width: 90%;
+  position: relative; /* ADD THIS */
+}
+
+  button {
+    padding: 12px 22px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .green { background: #ff6f91; color: white; }
+  .red { background: #ff4d4d; color: white; }
+
+  .big { transform: scale(1.2); }
+
+  .fade { animation: fadeIn 0.6s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);} 
+    to { opacity: 1; transform: translateY(0);} 
+  }
+
+  .heart {
+    position: fixed;
+    top: -10px;
+    color: pink;
+    font-size: 20px;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh); }
+  }
+
+  img { max-width: 80%; border-radius: 15px; margin-top: 15px; }
+</style>
+</head>
+<body>
+<div class="container" id="app">
+  <button onclick="start()">click me</button>
+</div>
+
+<script>
+let step = 0;
+let yesSize = 1;
+
+function start() {
+  step = 1;
+  render();
+  startHearts();
+}
+
+function typeText(text, callback) {
+  let i = 0;
+  const app = document.getElementById('app');
+  app.innerHTML = `<p id="typing"></p>`;
+  const el = document.getElementById('typing');
+
+  const interval = setInterval(() => {
+    el.innerHTML += text[i];
+    i++;
+    if (i >= text.length) {
+      clearInterval(interval);
+      if(callback) callback();
+    }
+  }, 25);
+}
+
+ function randomPosition() {
+  const x = 10 + Math.random() * 60; // 10% to 70%
+  const y = 20 + Math.random() * 50; // 20% to 70%
+  return `position:absolute; left:${x}%; top:${y}%;`;
+   }
+  
+function render() {
+  const app = document.getElementById('app');
+  const body = document.body;
+
+  body.classList.remove('pink-bg');
+
+  if(step === 1) {
+    typeText("Hi Seleira, I know that I've been making loads of mistakes lately.", () => {
+      app.innerHTML += `<br><button onclick="next()">continue</button>`;
+    });
+  }
+
+  else if(step === 2) {
+    typeText("I don't know lately naging lazy ako and nakakatulog ako often buntis ata ako eh.", () => {
+      app.innerHTML += `<br><button onclick="next()">continue</button>`;
+    });
+  }
+
+  else if(step === 3) {
+    typeText("Kidding aside, wala man akong masyadong mabigay talaga but I know what to do to bawi and change myself into a better man.", () => {
+      app.innerHTML += `<br><button onclick="next()">continue</button>`;
+    });
+  }
+
+  else if(step === 4) {
+    body.classList.add('pink-bg');
+    app.innerHTML = `
+      <div class="fade">
+      <img src="meme1.jpg">
+      <p>I know that you're still thinking about what happened talaga but will you ever forgive me?</p>
+      <button class="green" onclick="yesPath()">yes</button>
+      <button class="red" style="${randomPosition()}" onclick="noPath1()">no</button>
+      </div>`;
+  }
+
+  else if(step === 5) {
+    body.classList.add('pink-bg');
+    <img src="meme9.jpg">
+    app.innerHTML = `<div class="fade"><p>reaaally? yeeeey</p>
+    <button class="green big" onclick="finalPage()">yes</button></div>`;
+  }
+
+  else if(step === 6) {
+    body.classList.add('pink-bg');
+    app.innerHTML = `<div class="fade">
+    <img src="meme2.jpg">
+    <p>really? huhu whyyy</p>
+    <button class="green big" onclick="yesPath()">okay fine</button>
+    <button class="red" style="${randomPosition()}" onclick="next()">still no</button>
+    </div>`;
+  }
+
+  else if(step === 7) {
+    body.classList.add('pink-bg');
+    yesSize += 0.2;
+    app.innerHTML = `<div class="fade">
+    <img src="meme3.jpg">
+    <p>huhuuu my honey bunch sugar plum ayaw mo talaga?</p>
+    <button class="green" style="transform: scale(${yesSize})" onclick="yesPath()">okay fine</button>
+    <button class="red" style="${randomPosition()}" onclick="next()">still no</button>
+    </div>`;
+  }
+
+  else if(step === 8) {
+    body.classList.add('pink-bg');
+    yesSize += 0.2;
+    app.innerHTML = `<div class="fade">
+    <img src="meme4.jpg">
+    <p>eto nalang, kiss kita marami hehe</p>
+    <button class="green" style="transform: scale(${yesSize})" onclick="yesPath()">okay, yung may tunog ha?</button>
+    <button class="red" style="${randomPosition()}" onclick="next()">ayoko</button>
+    </div>`;
+  }
+
+  else if(step === 9) {
+    body.classList.add('pink-bg');
+    yesSize += 0.2;
+    app.innerHTML = `<div class="fade">
+    <img src="meme5.jpg">
+    <p>huhuuuu whhyyyyy I'm sorry naaa pleaseee</p>
+    <button class="green" style="transform: scale(${yesSize})" onclick="yesPath()">yes</button>
+    <button class="red" style="${randomPosition()}" onclick="next()">no</button>
+    </div>`;
+  }
+
+  else if(step === 10) {
+    body.classList.add('pink-bg');
+    yesSize += 0.3;
+    app.innerHTML = `<div class="fade">
+    <img src="meme6.jpg">
+    <p>please, I'm sorry na uwu U A U A U A</p>
+    <button class="green" style="transform: scale(${yesSize})" onclick="forceYes()">yes</button>
+    <button class="red" style="${randomPosition()}" onclick="next()">no</button>
+    </div>`;
+  }
+
+  else if(step === 11) {
+    body.classList.add('pink-bg');
+    <img src="meme7.jpg">
+    app.innerHTML = `<div class="fade"><p>hmp, okay you leave me no choice</p>
+    <button onclick="next()">continue</button></div>`;
+  }
+
+  else if(step === 12) {
+    body.classList.add('pink-bg');
+    <img src="meme8.jpg">
+    app.innerHTML = `<div class="fade"><p>:P</p>
+    <button class="green big" onclick="finalPage()">yes</button>
+    <button class="green big" onclick="finalPage()">yes</button></div>`;
+  }
+}
+
+function next() { step++; render(); }
+function yesPath() { step = 5; render(); }
+function noPath1() { step = 6; render(); }
+function forceYes() { step = 11; render(); }
+
+function finalPage() {
+  const app = document.getElementById('app');
+  document.body.classList.add('pink-bg');
+  <img src="lovepicture.jpg">
+  app.innerHTML = `
+    <div class="fade">
+    <h2>I'm really sorry ❤️</h2>
+    <p>
+    Hi Seleira, I'd like to apologize talaga ng maayos.<br><br>
+    I'm still trying to adjust to become a better man for you,<br><br>
+    because you really mean everything to me and worth it ka sobra sa akin.<br><br>
+    I know that I can't give much for now and hindi kami same path ni Nak JC.<br><br>
+    but, I'll still do my best maging successful kahit gan'to stakes ko and<br><br>
+    I know what I want and eto talaga gusto ko. Also, I'm not letting you wait for long<br><br>
+    I'm just finding sa right time, I really like being with you.<br><br>
+    Thank you for staying despite everything. I Thank God you exist.<br><br>
+    </p>
+}
+
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '💖';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+  }, 300);
+}
+</script>
+</body>
+</html>

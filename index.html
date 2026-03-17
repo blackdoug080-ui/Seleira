@@ -64,13 +64,14 @@
     to { transform: translateY(110vh); }
   }
 
-  img { max-width: 80%; border-radius: 15px; margin-top: 15px; }
-</style>
-</head>
-<body>
-<div class="container" id="app">
-  <button onclick="start()">click me</button>
-</div>
+  img {
+  width: 80%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 15px;
+}
 
 <script>
 let step = 0;

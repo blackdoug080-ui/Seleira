@@ -140,11 +140,13 @@ function render() {
   }
 
   else if(step === 5) {
-    body.classList.add('pink-bg');
+  body.classList.add('pink-bg');
+  app.innerHTML = `<div class="fade">
     <img src="meme9.jpg">
-    app.innerHTML = `<div class="fade"><p>reaaally? yeeeey</p>
-    <button class="green big" onclick="finalPage()">yes</button></div>`;
-  }
+    <p>reaaally? yeeeey</p>
+    <button class="green big" onclick="finalPage()">yes</button>
+  </div>`;
+}
 
   else if(step === 6) {
     body.classList.add('pink-bg');
@@ -201,19 +203,22 @@ function render() {
   }
 
   else if(step === 11) {
-    body.classList.add('pink-bg');
+  body.classList.add('pink-bg');
+  app.innerHTML = `<div class="fade">
     <img src="meme7.jpg">
-    app.innerHTML = `<div class="fade"><p>hmp, okay you leave me no choice</p>
-    <button onclick="next()">continue</button></div>`;
-  }
+    <p>hmp, okay you leave me no choice</p>
+    <button onclick="next()">continue</button>
+  </div>`;
+}
 
   else if(step === 12) {
-    body.classList.add('pink-bg');
+  body.classList.add('pink-bg');
+  app.innerHTML = `<div class="fade">
     <img src="meme8.jpg">
-    app.innerHTML = `<div class="fade"><p>:P</p>
+    <p>:P</p>
     <button class="green big" onclick="finalPage()">yes</button>
-    <button class="green big" onclick="finalPage()">yes</button></div>`;
-  }
+    <button class="green big" onclick="finalPage()">yes</button>
+  </div>`;
 }
 
 function next() { step++; render(); }
@@ -224,9 +229,10 @@ function forceYes() { step = 11; render(); }
 function finalPage() {
   const app = document.getElementById('app');
   document.body.classList.add('pink-bg');
-  <img src="lovepicture.jpg">
+
   app.innerHTML = `
     <div class="fade">
+    <img src="lovepicture.jpg">
     <h2>I'm really sorry ❤️</h2>
     <p>
     Hi Seleira, I'd like to apologize talaga ng maayos.<br><br>
@@ -238,6 +244,8 @@ function finalPage() {
     I'm just finding sa right time, I really like being with you.<br><br>
     Thank you for staying despite everything. I Thank God you exist.<br><br>
     </p>
+    </div>
+  `;
 }
 
 function startHearts() {
